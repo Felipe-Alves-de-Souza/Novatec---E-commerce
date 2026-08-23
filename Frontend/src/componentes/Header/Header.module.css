@@ -23,3 +23,10 @@
     color: #f8edd9;
   font-weight: 500;
 }
+
+button{
+    background-color: transparent;
+    border: transparent;
+    color:  #f8edd9;
+    cursor: pointer;
+}

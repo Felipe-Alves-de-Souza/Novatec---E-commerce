@@ -1,15 +1,20 @@
 import styles from "./Header.module.css"
 
+function Header({ setTela }) {
 
-function Header() {
   return (
     <header className={styles.header}>
+
       <h1 className={styles.logo}>Novatec</h1>
 
       <nav className={styles.nav}>
-        <a href="#">Produtos</a>
-        <a href="#">Cadastrar produto</a>
+
+        <button onClick={() => setTela("produtos")}>Produtos</button>
+
+        <button onClick={() => setTela("cadastro")}>Cadastrar Produto</button>
+
       </nav>
+
     </header>
   )
 }
