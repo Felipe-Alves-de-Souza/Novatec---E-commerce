@@ -4,10 +4,13 @@
   align-items: center;
   padding: 20px 40px;
   border-bottom: 1px solid #ddd;
+  background-color: #01103a;
+  color: #fff;
 }
 
 .logo {
   font-size: 24px;
+  color: fff;
 }
 
 .nav {
@@ -17,6 +20,6 @@
 
 .nav a {
   text-decoration: none;
-  color: #222;
+    color: #f8edd9;
   font-weight: 500;
 }
