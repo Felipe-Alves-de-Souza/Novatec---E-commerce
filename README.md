@@ -36,15 +36,15 @@ O Front-end foi desenvolvido utilizando **React** e o Back-end utilizando **Java
 
 Cada produto possui os seguintes campos:
 
-Campo  Tipo
-
- id  Integer 
- nome  String 
- descricao  String 
- preco  Double 
- categoria  String 
- quantidade  Integer 
- imagem  String 
+| Campo | Tipo |
+|---|---|
+| id | Integer |
+| nome | String |
+| descricao | String |
+| preco | Double |
+| categoria | String |
+| quantidade | Integer |
+| imagem | String |
 
 O `id` é gerado automaticamente pelo banco de dados.
 
