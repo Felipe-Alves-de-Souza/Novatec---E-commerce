@@ -26,6 +26,19 @@ public class ProdutoController {
 @PostMapping
 public ResponseEntity<Produtos> cadastrar(@RequestBody Produtos produto){
     String sql = "INSERT INTO produto (nome, descricao, preco, categoria, quantidade, imagem) VALUES (?, ?, ?, ?, ?, ?)";
+    if (produto.getNome() == null || produto.getNome().isBlank() || produto.getDescricao() == null || produto.getDescricao().isBlank()
+    || produto.getPreco() == null || produto.getPreco() <= 0 || produto.getCategoria() == null || produto.getCategoria().isBlank()
+    || produto.getQuantidade() <= 0) {
+        return ResponseEntity.status(400).build();
+    }
+
+    String produtoEquivalente = "SELECT * FROM produto";
+    List<Produtos> resultado = template.query(produtoEquivalente, new BeanPropertyRowMapper<>(Produtos.class));
+    for (Produtos produtos : resultado) {
+        if (produto.getNome().equalsIgnoreCase(produtos.getNome()) && produto.getDescricao().equalsIgnoreCase(produtos.getDescricao()) ) {
+            return ResponseEntity.status(409).build();
+        }
+    }
     KeyHolder holder = new GeneratedKeyHolder();
     template.update(con -> {
         PreparedStatement statement = con.prepareStatement(

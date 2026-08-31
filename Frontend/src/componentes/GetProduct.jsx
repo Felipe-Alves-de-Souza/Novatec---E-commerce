@@ -1,28 +1,24 @@
 import { useEffect, useState } from "react"
 import ProductCard from "./ProductCard/ProductCard"
+import axios from "axios"
 
 
 export function GetProduct() {
 
     const [produto, setProduto] = useState([])
 
-    async function getProduto() {
-        try {
-            const response = await fetch("http://127.0.0.1:8080/produtos")
-
-            const data = await response.json()
-
-            console.log(data)
-
-            setProduto(data)
-
-        } catch (e) {
-            console.error(e)
-        }
+    async function buscarProdutos() {
+        axios.get("http://localhost:8080/produtos")
+        .then(resposta => {
+            setProduto(resposta.data)
+        })
+        .catch((error)=>{
+            console.log("Houve um erro na requisição", error)
+        })
     }
 
     useEffect(() => {
-        getProduto()
+        buscarProdutos()
     }, [])
 
     return (
