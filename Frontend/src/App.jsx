@@ -3,10 +3,6 @@ import { useState } from "react"
 import Header from "./componentes/Header/Header"
 import ProductCard from "./componentes/ProductCard/ProductCard"
 import RegistrarProduto from "./pages/RegistrarProduto/RegistrarProduto"
-
-import tecladoImg from "./assets/teclado.png"
-import mouseImg from "./assets/mouse.png"
-import notebookImg from "./assets/notebook.png"
 import GetProduct from "./componentes/GetProduct"
 
 function App() {

@@ -164,9 +164,14 @@ Descrição obrigatória;
 Preço maior que zero;
 Categoria obrigatória;
 Quantidade não negativa;
-Imagem obrigatória.
+
 
 Quando os dados forem inválidos, a API deverá retornar:
 
 400 Bad Request
+
+Além disso, se é o usuário tentar cadastrar um produto que o nome e descrição 
+já tem registro no Banco de dados, sofrerá a validação com:
+
+409 (Conflict)
 

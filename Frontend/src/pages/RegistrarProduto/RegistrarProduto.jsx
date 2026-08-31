@@ -1,6 +1,7 @@
 import styles from "./RegistrarProduto.module.css"
-import GetProduct from "../../componentes/GetProduct";
 import { useRef } from "react"
+import axios from 'axios'
+
 
 
 function RegisterProduct() {
@@ -34,20 +35,16 @@ function RegisterProduct() {
       return
     }
     try {
-      await fetch("http://localhost:8080/produtos", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          nome: inputNome.current.value,
-          descricao: inputDescricao.current.value,
-          preco: inputPreco.current.value,
-          categoria: inputCategoria.current.value,
-          quantidade: inputQuantidade.current.value,
-          imagem: inputImagem.current.value
-        })
-      })
+      await axios.post("http://localhost:8080/produtos",{
+        nome,
+          descricao,
+          preco,
+          categoria,
+          quantidade,
+          imagem
+        });
+
+        
 
       alert("Produto cadastrado com sucesso!")
       inputNome.current.value = ""
